@@ -1,0 +1,51 @@
+<div class="navbar bg-inverse text-center ">
+  <h2 class="text-white">Cafe order</h2>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <h2 class="text-center">Step 1: Your Details</h2>
+  </div>
+  <div class="col-6">
+    <!--<form (ngSubmit)="onSubmit()" [formGroup]="detailsForm">-->
+    <form #detailsForm="ngForm" novalidate>
+      <div class="form-group row">
+        <div class="col-6">
+          <label for="orderName">Your name (addresser)</label>
+          <input #orderName="ngModel" name="orderName" [(ngModel)]="orderServ.order.name" pattern="[a-zA-Z ]*" required class="form-control" />
+          <div *ngIf="orderName.invalid" class="text-danger">
+            Please enter valid name
+          </div>
+        </div>
+        <div class="col-3">
+          <label for="orderEmail">Email</label>
+          <input type="email" #orderEmail="ngModel" name="orderEmail" [(ngModel)]="orderServ.order.email" required class="form-control" />
+          <div *ngIf="orderEmail.invalid" class="text-danger">
+            Please enter valid email
+          </div>
+        </div>
+        <div class="col-3">
+          <label for="orderPhone">Phone</label>
+          <input type="tel" placeholder="+380xx xx xx xx"
+                 #orderPhone="ngModel" name="orderPhone" [(ngModel)]="orderServ.order.address.international_phone_number" required class="form-control" />
+          <div *ngIf="orderPhone.invalid" class="text-danger">
+            Please enter valid phone number
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <app-address #address="ngModel" name="address" [addressGroup]="orderServ.order.address" [(ngModel)]="orderServ.order.address"></app-address>
+        <!--<div *ngIf="address.invalid" class="text-danger">
+          Please enter your address
+        </div>-->
+      </div>
+      <div class="navbar">
+        <button class="btn btn-outline-primary" routerLink="/cart">Back</button>
+        <button name="goPayments" class="btn btn-success pull-right" [disabled]="detailsForm.invalid"
+                routerLink="/checkout/step2">
+          Make payment by card ($)
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

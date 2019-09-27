@@ -1,0 +1,47 @@
+<div class="navbar border">
+  <button class="btn btn-success pull-left" (click)="newProduct()">
+    New Product
+  </button>
+</div>
+<table id="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+       class="table tablesorter filterable hover table-bordered ">
+  <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th class="select-filter">Name</th>
+      <th class="select-filter">Category</th>
+      <th class="select-filter">Supplier</th>
+      <th class="All">Price</th>
+      <th class="orderable-non">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--<tr *ngFor="let p of products | async | grdFilter: {name: searchText, category:searchText }">-->
+    <tr *ngFor="let p of products$">
+      <td>{{p.productId}}</td>
+      <td>{{p.name}}</td>
+      <td>{{p.category}}</td>
+      <td>{{p.supplier?.name || '(None)'}}</td>
+      <td>{{p.price | currency:USD:true}}</td>
+      <td>
+        <button class="btn btn-sm btn-outline-info " [routerLink]="['/admin/productDetails', p.productId]">
+          Details
+        </button>
+        <button class="btn btn-sm btn-outline-primary" (click)="selectProduct(p.productId)">
+          Edit
+        </button>
+        <button class="btn btn-sm btn-outline-danger" (click)="deleteProduct(p.productId)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <!--<tr> <td><input class="pull-right" [(ngModel)]="searchText" placeholder="Search.."></td></tr>-->
+
+  </tfoot>
+</table>
+
+<!--<ng-template #create>
+  <admin-product-editor (productCreated)="productCreatedHandler($event)"></admin-product-editor>
+</ng-template>-->

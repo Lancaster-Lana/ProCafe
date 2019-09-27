@@ -1,0 +1,80 @@
+<form #productEditForm="ngForm" class="m-3 shadow">
+  <div class="form-group row">
+    <div class="col-6">
+      <label for="name">Name</label>
+      <input class="form-control" #name name="name" required [(ngModel)]="product.name" [ngClass]="{ 'is-invalid': name.invalid }" />
+      <div *ngIf="name.invalid" class="text-danger">
+        Product name is required
+      </div>
+    </div>
+    <div class="col-4">
+      <label for="category">Category</label>
+      <select #category name="category" required class="form-control" [(ngModel)]="product.category">
+        <option *ngFor="let cat of categories | async" [ngValue]="cat">{{cat}}</option>
+      </select>
+      <div *ngIf="category.invalid" class="text-danger">
+        Category is required
+      </div>
+    </div>
+    <div class="col-2">
+      <label for="price">Price ($)</label>
+      <input class="form-control" #price name="price" type="number" required [(ngModel)]="product.price"
+             [ngClass]="{'is-invalid': price.invalid }"
+             pattern="^[1-9]+([0-9]){1,3}(/.)?[0-9]{0,3}" />
+      <div *ngIf="price.invalid" class="text-danger">
+        Price is wrong
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="supplier">Supplier</label>
+    <select #supplier name="supplier" class="form-control" [(ngModel)]="product.supplier" [compareWith]="compareSuppliers">
+      <option *ngFor="let s of suppliers" [ngValue]="s">{{s.name}}</option>
+    </select>
+  </div>
+  <div class="form-group row">
+    <div class="col-4">
+      <label for="imageUpload">Image</label>
+      <div>
+        <label class="btn btn-default">
+          <input type="file" (change)="selectImageFile($event)">
+        </label>
+        <hr />
+        <img *ngIf="product.imageFileString != null" [src]="product.imageFileString" class="product-image" />
+
+        <!--<img [src]="imageBytes" *ngIf="currentFileUpload != null" class="product-image" />-->
+        <!--<div *ngIf="currentFileUpload" class="progress">
+         <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+           aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+        {{progress.percentage}}%
+      </div>
+      <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>-->
+      </div>
+  </div>
+    <div class="col-8">
+      <label for="description">Description</label>
+      <textarea class="form-control" #description name="description" [(ngModel)]="product.description"></textarea>
+    </div>
+  </div>
+  <p *ngIf="errorMessage != null" class="h5 text-danger">
+    {{errorMessage}}
+  </p>
+  <p *ngIf="productEditForm.submitted && errorMessage == null" class="h5 text-success">
+    Product saved successfully !
+  </p>
+  <div class="navbar border">
+    <!--<button [routerLink]="['/admin/products']" >Back</button>-->
+    <button class="btn btn-outline-primary" (click)="goBack()">Back</button>
+    <div class="btn-group pull-right">
+      <button *ngIf="productEditForm.dirty" class="btn btn-warning" (click)="revertChanges()">
+        Cancel
+      </button>
+      <button *ngIf="product.productId != null" class="btn btn-danger" (click)="deleteProduct(product.productId)">
+        Delete
+      </button>
+      <button type="submit" [disabled]="productEditForm.invalid" class="btn btn-success" (click)="saveProduct()">
+        Save
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,32 @@
+.grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+.logo {
+  background-image: url('../../../../../wwwroot/css/images/brand.png');
+  min-height: 100%;
+  background-size:auto;
+}
+
+.logo-background {
+   background-image: linear-gradient(180deg, red, blue);
+   height:30px;
+}

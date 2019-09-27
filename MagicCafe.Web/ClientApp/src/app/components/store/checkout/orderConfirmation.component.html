@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-6"></div>
+  <div class="col-6">
+    <h2 class="text-center">Order Confirmation</h2>
+    <div class="container">
+      <table *ngIf="orderServ.order?.orderConfirmation; else nodata" class="table m-2">
+        <tr><th>Order</th><td>{{orderServ.order?.orderConfirmation?.orderId}}</td></tr>
+        <tr><th>Price</th><td>{{orderServ.order?.orderConfirmation?.amount}}</td></tr>
+        <tr><th>Payment Code</th><td>{{orderServ?.order.orderConfirmation?.authCode}}</td></tr>
+      </table>
+      <div class="text-center">
+        <button class="btn btn-success" routerLink="/">Done</button>
+      </div>
+
+      <ng-template #nodata>
+        <h3 class="text-center text-success">Congrats! Your order have been accepted! </h3>
+      </ng-template>
+    </div>
+  </div>
+</div>

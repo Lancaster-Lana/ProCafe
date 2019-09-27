@@ -1,0 +1,39 @@
+<div class="text-white">
+  <!--<div class="col-10 text-center">
+    <h3 class="text-center"> </h3>
+  </div>-->
+  <h2 class="text-center bg-dark ">Admin Cafe Portal</h2>
+  <div class="navbar">
+    <div class="pull-left">
+      <a class="text-white h6" routerLink="/">Main Board</a>
+    </div>
+    <div class="col-2 text-right no-gutters">
+      <b> {{userName}} </b>
+      <button class="btn btn-sm btn-outline-warning" (click)="authService.logout()">
+        Log Out
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="row no-gutters">
+  <div class="col-1"></div>
+  <div class="col-3">
+    <button class="btn btn-block btn-outline-info" routerLink="/admin"
+            routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      Overview
+    </button>
+    <button class="btn btn-block btn-outline-info" routerLink="/admin/products"
+            routerLinkActive="active">
+      Products
+    </button>
+    <button class="btn btn-block btn-outline-info" routerLink="/admin/orders"
+            routerLinkActive="active">
+      Orders
+    </button>
+  </div>
+  <div class="col-2"></div>
+  <div class="col-6 no-gutters">
+    <router-outlet></router-outlet>
+  </div>
+</div>
