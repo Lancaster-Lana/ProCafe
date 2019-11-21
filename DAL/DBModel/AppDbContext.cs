@@ -52,17 +52,17 @@ namespace DAL.DBModel
     }
 
     
-    public class DBContextFactory : IDesignTimeDbContextFactory<AppDbContext>
-    {
-        public AppDbContext CreateDbContext(string[] args)
-        {
-            var identityConnectionStr = "Server=.;Database=Bakery;Trusted_Connection=True;MultipleActiveResultSets=true"; //args[0]; //"Server=.;Database=BakeryIdentityDB;Trusted_Connection=True;MultipleActiveResultSets=true";
-            //Configuration.GetConnectionString("DefaultConnection")
+    //public class DBContextFactory : IDesignTimeDbContextFactory<AppDbContext>
+    //{
+    //    public AppDbContext CreateDbContext(string[] args)
+    //    {
+    //        var identityConnectionStr = "Server=.;Database=Bakery;Trusted_Connection=True;MultipleActiveResultSets=true"; //args[0]; //"Server=.;Database=BakeryIdentityDB;Trusted_Connection=True;MultipleActiveResultSets=true";
+    //        //Configuration.GetConnectionString("DefaultConnection")
 
-            var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            optionsBuilder.UseSqlServer(identityConnectionStr);
+    //        var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
+    //        optionsBuilder.UseSqlServer(identityConnectionStr);
 
-            return new AppDbContext(optionsBuilder.Options);
-        }
-    } 
+    //        return new AppDbContext(optionsBuilder.Options);
+    //    }
+    //} 
 }

@@ -3,3 +3,9 @@
 ################################################################################
 
 /.vs/ProCafe
+/ChatServer/obj
+/ChatServer/bin/Debug
+/DAL/bin/Debug
+/DAL/obj
+/ProCafe.Web/bin/Debug/netcoreapp2.2
+/ProCafe.Web/obj

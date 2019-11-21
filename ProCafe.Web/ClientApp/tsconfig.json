@@ -1,40 +1,37 @@
 {
   "compileOnSave": false,
-
   "compilerOptions": {
+    "baseUrl": "./",
     // types option has been previously configured
     "types": [
       "node",
       "googlemaps" // add node as an option
     ],
-    // typeRoots option has been previously configured
-    "typeRoots": [
-      "node_modules/@types" // add path to @types
-    ],
-    "baseUrl": "./",
+
     "paths": {
       //  "@angular/*": [
       //    "node_modules/@angular/*"
       //  ],
-        "core-js/es7/reflect": [
-          "node_modules/core-js/proposals/reflect-metadata"
-        ]    
+      "core-js/es7/reflect": ["node_modules/core-js/proposals/reflect-metadata"]
+      //"api-ai-javascript/*": [ "node_modules/api-ai-javascript/es6/*" ] //bypass the index.ts
     },
+    //"include": [
+    //"../node_modules/api-ai-javascript/ts/*.ts"
+    //],
     //"exclude": [
     //  "node_modules",
     //  "**/*.spec.ts"
     //],
+    "downlevelIteration": true,
+    "module": "esnext",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es2015",
-
-    "lib": [
-      "es2017",
-      "dom"
-    ]
+    "target": "es2017",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"]
   }
 }

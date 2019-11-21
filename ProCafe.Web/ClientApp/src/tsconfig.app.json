@@ -2,7 +2,7 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "module": "es2015",
+    //"module": "es2015",
     "types": [ "node", "googlemaps" ]
   },
   "angularCompilerOptions": {
@@ -11,5 +11,6 @@
   "exclude": [
     "src/test.ts",
     "**/*.spec.ts"
+    //"../node_modules/api-ai-javascript/ts/Request/TTSRequest.ts"
   ]
 }

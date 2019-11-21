@@ -6,8 +6,45 @@
     <div class="pull-left">
       <a class="h6 text-white" routerLink="/admin">Admin Board</a>
     </div>
+
     <div class="pull-right">
+      <!-- shopping card-->
       <cart-summary></cart-summary>
+
+      <!--Language select-->
+      <!--<select id="language" #languageSelect [(ngModel)]="configurations.language" [value]="en" title="{{'preferences.LanguageHint' | translate}}">
+    <option [value]="en" [ngClass]="'flag-icon flag-icon-en'" data-subtext="(Default)" title="{{'preferences.English' | translate}}"></option>
+
+    <option [value]="fr" title="{{'preferences.French' | translate}}" [ngClass]="'flag-icon flag-icon-fr'"></option>
+    <option [value]="de" title="{{'preferences.German' | translate}}" [ngClass]="flag-icon flag-icon-squared flag-icon-gb"></option>
+  </select>-->
+      <!--<select class="form-control"
+              name="language"
+              [(ngModel)]="model.language">
+        <option value="">Please select a language</option>
+        <option *ngFor="let lang of langs"
+                [value]="lang">
+          {{lang}}
+        </option>
+      </select>-->
+
+      <mat-form-field>
+        <mat-select #languageSelect [(ngModel)]="configurations.language" [(value)]="en"
+                    title="{{'preferences.LanguageHint' | translate}}" >
+          <!--<mat-select-trigger>
+            <span class="flag-icon flag-icon-{{ configurations.language | lowercase}}">{{'preferences.English' | translate}} </span>
+          </mat-select-trigger>-->
+          <mat-option [value]="en" title="{{'preferences.English' | translate}}">
+            <span class="flag-icon flag-icon-squared flag-icon-us"></span>{{'preferences.English' | translate}}
+          </mat-option>
+          <mat-option [value]="fr" title="{{'preferences.French' | translate}}">
+            <span class="flag-icon flag-icon-squared flag-icon-fr"></span>{{'preferences.French' | translate}}
+          </mat-option>
+          <mat-option [value]="fr" title="{{'preferences.German' | translate}}">
+            <span class="flag-icon flag-icon-squared flag-icon-gb"></span>{{'preferences.German' | translate}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
   </div>
   <div class="row">

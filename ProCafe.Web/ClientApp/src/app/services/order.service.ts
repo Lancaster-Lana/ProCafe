@@ -1,10 +1,11 @@
 import { Injectable, OnInit } from "@angular/core";
 import { Router, NavigationStart } from "@angular/router";
-import { Observable, of } from "rxjs";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, of } from "rxjs";
+import { filter } from "rxjs/operators";
+
 import { AuthenticationService } from "../components/auth/authentication.service";
 import { Order } from "../models/order.model";
-import { filter } from "rxjs/operators";
 
 const ordersUrl = "/api/orders";
 

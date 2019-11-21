@@ -9,7 +9,7 @@ var $ = require('jquery');
 
 //import * as $ from 'jquery';
 import 'datatables.net';
-import 'datatables.net-bs4';
+//import 'datatables.net-bs4';
 
 @Component({
   templateUrl: "admin.component.html"

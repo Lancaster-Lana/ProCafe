@@ -44,19 +44,14 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
-    <Compile Remove="ClientApp\types\**" />
-    <Compile Remove="wwwroot\chat\**" />
-    <Content Remove="$(SpaRoot)**" />
-    <Content Remove="ClientApp\types\**" />
-    <Content Remove="wwwroot\chat\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Remove="ClientApp\types\**" />
-    <EmbeddedResource Remove="wwwroot\chat\**" />
-    <None Remove="ClientApp\types\**" />
-    <None Remove="wwwroot\chat\**" />
+    <Compile Remove="ClientApp\src\app\components\chat\**" />
+    <Content Remove="ClientApp\src\app\components\chat\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\components\chat\**" />
+    <None Remove="ClientApp\src\app\components\chat\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,7 +60,6 @@
   <ItemGroup>
     <Content Remove="ClientApp\angular.json" />
     <Content Remove="ClientApp\e2e\tsconfig.e2e.json" />
-    <Content Remove="ClientApp\package-lock.json" />
     <Content Remove="ClientApp\package.json" />
     <Content Remove="ClientApp\src\tsconfig.app.json" />
     <Content Remove="ClientApp\src\tsconfig.spec.json" />
@@ -75,20 +69,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\dist\assets\Images\bkg.png" />
-    <None Remove="ClientApp\dist\assets\Images\brand.png" />
-    <None Remove="ClientApp\dist\assets\Images\Products\bread.jpg" />
-    <None Remove="ClientApp\dist\assets\Images\Products\carrot_cake.jpg" />
-    <None Remove="ClientApp\dist\assets\Images\Products\chocolate_cake.jpg" />
-    <None Remove="ClientApp\dist\assets\Images\Products\cupcakes.jpg" />
-    <None Remove="ClientApp\dist\assets\Images\Products\lemon_tart.jpg" />
-    <None Remove="ClientApp\dist\assets\Images\Products\pear_tart.jpg" />
-    <None Remove="ClientApp\dist\assets\Images\Products\Thumbnails\bread.jpg" />
-    <None Remove="ClientApp\dist\assets\Images\Products\Thumbnails\carrot_cake.jpg" />
-    <None Remove="ClientApp\dist\assets\Images\Products\Thumbnails\chocolate_cake.jpg" />
-    <None Remove="ClientApp\dist\assets\Images\Products\Thumbnails\cupcakes.jpg" />
-    <None Remove="ClientApp\dist\assets\Images\Products\Thumbnails\lemon_tart.jpg" />
-    <None Remove="ClientApp\dist\assets\Images\Products\Thumbnails\pear_tart.jpg" />
     <None Remove="ClientApp\src\app\models\productselection.model.ts" />
     <None Remove="ClientApp\src\assets\Images\bkg.png" />
     <None Remove="ClientApp\src\assets\Images\brand.png" />
@@ -107,48 +87,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="ClientApp\dist\assets\Images\bkg.png">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="ClientApp\dist\assets\Images\brand.png">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="ClientApp\dist\assets\Images\Products\bread.jpg">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="ClientApp\dist\assets\Images\Products\carrot_cake.jpg">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="ClientApp\dist\assets\Images\Products\chocolate_cake.jpg">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="ClientApp\dist\assets\Images\Products\cupcakes.jpg">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="ClientApp\dist\assets\Images\Products\lemon_tart.jpg">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="ClientApp\dist\assets\Images\Products\pear_tart.jpg">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="ClientApp\dist\assets\Images\Products\Thumbnails\bread.jpg">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="ClientApp\dist\assets\Images\Products\Thumbnails\carrot_cake.jpg">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="ClientApp\dist\assets\Images\Products\Thumbnails\chocolate_cake.jpg">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="ClientApp\dist\assets\Images\Products\Thumbnails\cupcakes.jpg">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="ClientApp\dist\assets\Images\Products\Thumbnails\lemon_tart.jpg">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="ClientApp\dist\assets\Images\Products\Thumbnails\pear_tart.jpg">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Include="ClientApp\src\assets\Images\bkg.png">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
@@ -356,7 +294,6 @@
   <ItemGroup>
     <None Include="ClientApp\angular.json" />
     <None Include="ClientApp\e2e\tsconfig.e2e.json" />
-    <None Include="ClientApp\package-lock.json" />
     <None Include="ClientApp\package.json" />
     <None Include="ClientApp\src\tsconfig.app.json" />
     <None Include="ClientApp\src\tsconfig.spec.json" />
@@ -364,5 +301,21 @@
     <None Include="ClientApp\tsconfig.json" />
     <None Include="ClientApp\tslint.json" />
   </ItemGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ESNext</TypeScriptTarget>
+    <TypeScriptJSXEmit>React</TypeScriptJSXEmit>
+    <TypeScriptModuleKind>None</TypeScriptModuleKind>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
 
 </Project>

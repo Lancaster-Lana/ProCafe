@@ -23,12 +23,11 @@
               "src/assets"
             ],
             "styles": [
-
               "node_modules/bootstrap/dist/css/bootstrap.css",
               //for bootstrap4 theme
               //"node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css", //"node_modules/datatables.net-bs/css/dataTables.bootstrap.css",
               //"node_modules/datatables.net-dt/css/jquery.dataTables.css",
-
+              "node_modules/flag-icon-css/css/flag-icon.min.css",
               "node_modules/sweetalert2/dist/sweetalert2.css",
               //"node_modules/angular-card/src/card.css",
               //{
@@ -43,7 +42,7 @@
               "node_modules/datatables.net/js/jquery.dataTables.js",
               //"node_modules/angular-datatables.net-bs/ ",
               //for bootstrap4
-              "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js", //"node_modules/datatables.net-bs/js/dataTables.bootstrap.js", //
+              //"node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js", //"node_modules/datatables.net-bs/js/dataTables.bootstrap.js", //
               //alert dialog
               "node_modules/sweetalert2/dist/sweetalert2.js"
               //"node_modules/angular-card/src/card.js"

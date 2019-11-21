@@ -23,9 +23,9 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "admin", redirectTo: "/admin/overview", pathMatch: "full" },
   {
-    path: "admin", component: AdminComponent,
+    path: "admin", component: AdminComponent, 
     canActivateChild: [AuthenticationGuard],
-    children: [
+    children: [  
       { path: "products", component: ProductAdminComponent },
       { path: "productDetails/:id", component: ProductDetailsComponent },
       { path: "productCreate", component: ProductEditorComponent },
