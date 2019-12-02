@@ -24,11 +24,12 @@
         <h5 *ngIf="showError" class="text-danger">
           Invalid username or password
         </h5>
-        <div class="form-group">
-          <button class="btn btn-success" [disabled]="authForm.invalid" (click)="login()">
+        <div class="form-group navbar col-6">
+          <button class="btn btn-success pull-left" [disabled]="authForm.invalid" (click)="login()">
             Login
           </button>
-          <a routerLink="/register" class="btn btn-link"><span class="text-white">Register</span></a>
+          <a routerLink="/register" class="btn btn-link pull-right">
+              <span class="text-white">Register</span></a>
         </div>
       </figure>
     </form>

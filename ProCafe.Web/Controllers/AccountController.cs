@@ -25,12 +25,12 @@ namespace LanaResto.ApiController
 
         [HttpPost("login")]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]  //[AutoValidateAntiforgeryToken]
+        //[AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Login([FromBody] LoginViewModel creds)
         {
             if (ModelState.IsValid && await DoLogin(creds))
             {
-                return Ok();
+                return Ok(true);
             }
             return BadRequest();
         }
@@ -111,6 +111,8 @@ namespace LanaResto.ApiController
         private async Task<bool> DoLogin(LoginViewModel creds)
         {
             var user = await _userManager.FindByNameAsync(creds.Name);
+            if(user == null)
+                user = await _userManager.FindByEmailAsync(creds.Name);
             if (user != null)
             {
                 await _signInManager.SignOutAsync();

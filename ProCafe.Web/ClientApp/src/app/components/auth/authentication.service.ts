@@ -28,7 +28,8 @@ export class AuthenticationService {
     this.authenticated = false;
     return this.loginStart(this.name, this.password)
       .pipe(map(response => {
-        if (response == "ok") {
+        if (response)
+        {
           this.authenticated = true;
           this.password = null;
           this.router.navigateByUrl(this.callbackUrl || "/admin/overview");
@@ -55,8 +56,8 @@ export class AuthenticationService {
     this.authenticated = false;
     return this.registerStart(user)
       .pipe(map(response => {
-        alert("Reg R : " + response);
-        if (response == "ok") {
+        if (response)// == "ok"
+        {
           this.authenticated = true;
           //this.password = null; ?
           this.router.navigateByUrl(this.callbackUrl || "/admin/overview");
@@ -85,7 +86,8 @@ export class AuthenticationService {
   private loginStart(login: string, pass: string) //: Observable<Response>
   {
     const body = { Name: login, Password: pass };
-    return this.http.post(loginUrl, body);
+    let result = this.http.post(loginUrl, body);
+    return result;
   }
 
   private logoutStart() {

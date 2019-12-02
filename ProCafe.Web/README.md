@@ -8,3 +8,8 @@ PM> update-database -project DAL
 ** run 'npm i' 
 - to check if web components compiled well, specify 'ng build'
 And if ok (green compiled) lunch in VS MagicCafe.Web project
+
+------------
+  To login to admin panel
+  1. register your name, email\password, create login
+  2. enter login and password

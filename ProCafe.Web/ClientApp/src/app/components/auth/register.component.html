@@ -59,9 +59,8 @@
       </h4>
       <div class="navbar border">
         <button routerLink="/login" class="btn btn-outline-danger">Cancel</button>
-        <button [disabled]="loading" class="btn btn-success">
-          Register
-          <span *ngIf="loading" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+        <button [disabled]="loading" class="btn btn-success"> Register
+          <!--<span *ngIf="loading" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>-->
         </button>
       </div>
     </form>
